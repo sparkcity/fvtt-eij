@@ -90,7 +90,7 @@ function updateScore(characterName, obLvl){
         'data.scores.level1obsession': newTally,
         'data.scores.total': newTotal
      });
-      messageContent = `<p><b>Level 1 Obsession</b>: ${thisActor.data.data.obsessions.level1obsession}</p>`
+      messageContent = `<p><b>Level 1 Obsession Complete</b></p>`
       break;
     case 2:
       newTally = thisActor.data.data.scores.level2obsession + 1;
@@ -99,7 +99,7 @@ function updateScore(characterName, obLvl){
         'data.scores.level2obsession': newTally,
         'data.scores.total': newTotal
      });
-      messageContent = `<p><b>Level 2 Obsession</b>: ${thisActor.data.data.obsessions.level2obsession}</p>`
+      messageContent = `<p><b>Level 2 Obsession Complete</b></p>`
       break;
     case 3:
       newTally = thisActor.data.data.scores.level3obsession + 1;
@@ -108,7 +108,7 @@ function updateScore(characterName, obLvl){
         'data.scores.level3obsession': newTally,
         'data.scores.total': newTotal
      });
-      messageContent = `<p><b>Level 3 Obsession</b>: ${thisActor.data.data.obsessions.level3obsession}</p>`
+      messageContent = `<p><b>Level 3 Obsession Complete</b></p>`
       break;
   }
   
