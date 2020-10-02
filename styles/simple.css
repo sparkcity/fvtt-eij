@@ -1,0 +1,266 @@
+@font-face {
+  font-family: 'Daniel';
+  src: url('../assets/fonts/danielbd.ttf');
+}
+
+.eij {
+  /* Sheet Tabs */
+  /* Items List */
+  /* Attributes */
+}
+.eij .window-content {
+  background: url("../assets/bg.jpg");
+  height: 100%;
+  padding: 5px;
+  overflow-y: hidden;
+}
+.eij .sheet-header {
+  height: 110px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  font-family: Daniel;
+}
+.eij .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+.eij .sheet-header .header-fields {
+  flex: 1;
+  height: 100px;
+}
+.eij .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.eij .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  width: 290px;
+  flex: 50%;
+  border-top: 2px solid black;
+}
+
+.column:nth-child(1) {
+  border-right: 2px solid black;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.eij .sheet-body .editor-content {
+  background: #f5f5f5;
+  padding: 5px;
+}
+
+.eij .sheet-body .editor {
+  height: 200px;
+  background: #f5f5f5;
+}
+
+.eij .tabs {
+  height: 40px;
+}
+.eij .tabs .item {
+  border-style: double;
+  line-height: 40px;
+  font-weight: bold;
+}
+.eij .tabs .item.active {
+  text-decoration: underline;
+  text-decoration-color: #00aeef;
+  text-shadow: none;
+}
+.eij .sheet-body {
+  overflow: hidden;
+}
+.eij .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+.eij .editor,
+.eij .editor-content {
+  height: 100px;
+  border: 2px solid #007dac;
+
+}
+.eij .item-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.eij .item-list .item {
+  min-height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+  align-items: stretch;
+}
+.eij .item-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.eij .item-list .item-name {
+  margin: 0;
+}
+.eij .item-list .item-controls {
+  flex: 0 0 36px;
+}
+.eij .item-list .item-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  flex: 2;
+  justify-content: flex-start;
+}
+.eij .item-list .item-button {
+  line-height: 1;
+  font-size: 11px;
+  flex: none;
+  width: auto;
+}
+.eij .attributes-header {
+  padding: 5px;
+  margin: 5px 0;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #AAA;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: bold;
+}
+.eij .attributes-header .attribute-label {
+  flex: 1.5;
+}
+.eij .attributes-header .attribute-control {
+  flex: 0 0 20px;
+}
+.eij .attributes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.eij .attributes-list li > * {
+  margin: 0 3px;
+  height: 28px;
+  line-height: 24px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #AAA;
+}
+.eij .attributes-list a.attribute-control {
+  flex: 0 0 20px;
+  text-align: center;
+  line-height: 28px;
+  border: none;
+}
+.eij .attributes-list .attribute-col label {
+  font-size: 10px;
+  text-align: center;
+  line-height: 1;
+}
+.eij .attributes-list .attribute-col input {
+  font-size: 11px;
+  text-align: center;
+  line-height: 1;
+  height: 50%;
+}
+.eij.sheet.actor {
+  min-width: 600px;
+  min-height: 600px;
+}
+.eij.sheet.item {
+  min-width: 460px;
+  min-height: 400px;
+}
+/*edited from foundry style.css*/
+.dice-tooltip .dice-rolls .roll.min {
+ color: black;
+ filter: sepia(0.0);
+}
+.dice-tooltip .dice-rolls .roll.max {
+  color: black;
+  filter: sepia(0.0);
+}
+
+/*Custom elements*/
+.eij .sheet-header .subfieldsBlock {
+  width: 100%;
+  margin-left: 17%;
+  margin-top: 15px;
+}
+
+.eij .sheet-header .willpowerLabel
+{
+  font-size: 25px;
+}
+
+.column .row span.headerRow{
+  font-size: 25px;
+  font-family: Daniel;
+}
+
+.column .row.headrow{
+  border-bottom: 2px solid black;
+}
+
+.column .row span.headerRow.skills {
+margin-left: 40%;
+}
+
+.column .rowcontainer .row.headrow span.headerRow.obsessions{
+  margin-left: 25%;
+}
+
+.column .row a.rowlabel{
+  margin-left: 2px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-family: Daniel;
+}
+
+.column .row input.skillinput{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 250px;
+}
+
+.column .rowcontainer{
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.window-app .window-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background: url("../assets/bg.jpg") repeat;
+  padding: 8px;
+  color: #191813;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+input.skrollbox{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+}

@@ -1,0 +1,47 @@
+{
+  "name": "eij",
+  "title": "Everyone is John",
+  "description": "Support for Everyone is John by Michael Sullivan, a competitive roleplaying game for three or more horrible people. Implementation based entirely on the Simple Worldbuilding System by Atropos.",
+  "version": 1.0,
+  "minimumCoreVersion": "0.5.6",
+  "compatibleCoreVersion": "0.6.6",
+  "templateVersion": 2,
+  "author": "Parker S.",
+  "packs": [
+    {
+			"name": "how-to-play",
+			"label": "How to Play",
+			"system": "eij",
+			"path": "./packs/how-to-play.db",
+			"entity": "JournalEntry"
+    },
+    {
+			"name": "determine-winner",
+			"label": "Determine Winner",
+			"system": "eij",
+			"path": "./packs/determine-winner.db",
+			"entity": "Macro"
+		}
+  ],
+  "esmodules": [
+    "module/simple.js",
+    "module/eij.js"
+  ],
+  "styles": [
+    "styles/simple.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "willpower",
+  "url": "https://github.com/sparkcity/fvtt-eij",
+  "manifest": "https://github.com/sparkcity/fvtt-eij/releases/latest/download/module.json",
+  "download": "https://github.com/sparkcity/fvtt-eij/releases/latest/download/module.zip",
+  "license": "LICENSE.txt"
+}
