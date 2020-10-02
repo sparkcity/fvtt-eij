@@ -204,12 +204,15 @@
 /*Custom elements*/
 .eij .sheet-header .subfieldsBlock {
   width: 100%;
-  margin-left: 17%;
+  margin-left: 30%;
   margin-top: 15px;
 }
 
-.eij .sheet-header .willpowerLabel
-{
+.eij .sheet-header .willpowerLabel{
+  font-size: 25px;
+}
+
+.eij .sheet-header .wpNumber{
   font-size: 25px;
 }
 
