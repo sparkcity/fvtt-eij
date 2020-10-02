@@ -11,7 +11,7 @@ An implementation for Foundry VTT of the one-page system, [Everyone is John](htt
 * Everyone is John Compendium: A copy of the Everyone is John one-page system (allowed under CC BY 4.0)
 * Character sheets for players with easy rolling automation
 
-![Image]( "Everyone is John Overview")
+![Image](https://raw.githubusercontent.com/sparkcity/fvttprojects/master/screenshots/eij.png "Everyone is John Overview")
 
 # License
 Everyone is John is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0). Everyone is John is © 2002 by Michael Sullivan.
