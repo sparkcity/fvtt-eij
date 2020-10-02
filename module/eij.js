@@ -74,10 +74,48 @@ function skillroll(characterName, skNum){
 
 /*
 @param {String} characterName - The name of the character passed in as a string from actor-sheet.js
-@param {Integer} obLvl - The level of the obsession. Level 1 obsession = +1 pt, Level 2 = +2 pts, Level 3 = +3 pts
+@param {Integer} obLvl - The level of the obsession.
 */
-function tallyObsession(characterName, obLvl){
+function updateScore(characterName, obLvl){
+  let thisActor = game.actors.getName(characterName);
+  let messageContent = "";
+  let newTally = 0;
+  let newTotal = 0;
 
+  switch(obLvl){
+    case 1:
+      newTally = thisActor.data.data.scores.level1obsession + 1;
+      newTotal = thisActor.data.data.scores.total + 1;
+      thisActor.update({ 
+        'data.scores.level1obsession': newTally,
+        'data.scores.total': newTotal
+     });
+      messageContent = `<p><b>Level 1 Obsession</b>: ${thisActor.data.data.obsessions.level1obsession}</p>`
+      break;
+    case 2:
+      newTally = thisActor.data.data.scores.level2obsession + 1;
+      newTotal = thisActor.data.data.scores.total + 2;
+      thisActor.update({ 
+        'data.scores.level2obsession': newTally,
+        'data.scores.total': newTotal
+     });
+      messageContent = `<p><b>Level 2 Obsession</b>: ${thisActor.data.data.obsessions.level2obsession}</p>`
+      break;
+    case 3:
+      newTally = thisActor.data.data.scores.level3obsession + 1;
+      newTotal = thisActor.data.data.scores.total + 3;
+      thisActor.update({ 
+        'data.scores.level3obsession': newTally,
+        'data.scores.total': newTotal
+     });
+      messageContent = `<p><b>Level 3 Obsession</b>: ${thisActor.data.data.obsessions.level3obsession}</p>`
+      break;
+  }
+  
+  ChatMessage.create({
+    speaker: {alias: characterName},
+    content: messageContent
+  });
 }
 
 /*
@@ -101,4 +139,4 @@ function subtractWillpower(characterName, amt){
 }
 
 
-export { skillroll };
+export { skillroll, updateScore };

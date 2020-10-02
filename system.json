@@ -14,6 +14,13 @@
 			"system": "eij",
 			"path": "./packs/how-to-play.db",
 			"entity": "JournalEntry"
+    },
+    {
+			"name": "determine-winner",
+			"label": "Determine Winner",
+			"system": "eij",
+			"path": "./packs/determine-winner.db",
+			"entity": "Macro"
 		}
   ],
   "esmodules": [

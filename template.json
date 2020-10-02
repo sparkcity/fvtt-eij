@@ -18,7 +18,8 @@
       "scores": {
         "level1obsession": 0,
         "level2obsession": 0,
-        "level3obsession": 0
+        "level3obsession": 0,
+        "total": 0
       }
     }
   },

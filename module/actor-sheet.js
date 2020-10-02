@@ -1,5 +1,5 @@
 import { ATTRIBUTE_TYPES } from "./constants.js";
-import { skillroll } from "../module/eij.js";
+import { skillroll, updateScore } from "../module/eij.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -65,6 +65,17 @@ export class SimpleActorSheet extends ActorSheet {
     });
     html.find('.column .row a.rowlabel.sk3').click(ev => {
       skillroll(characterName, 3);
+    });
+
+  //Tallying obsessions
+    html.find('.column .row a.rowlabel.ob1').click(ev => {
+      updateScore(characterName, 1);
+    });
+    html.find('.column .row a.rowlabel.ob2').click(ev => {
+      updateScore(characterName, 2);
+    });
+    html.find('.column .row a.rowlabel.ob3').click(ev => {
+      updateScore(characterName, 3);
     });
 
   }//end of activatelisteners
