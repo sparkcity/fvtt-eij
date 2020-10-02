@@ -14,6 +14,11 @@
         "level1obsession": "",
         "level2obsession": "",
         "level3obsession": ""
+      },
+      "scores": {
+        "level1obsession": 0,
+        "level2obsession": 0,
+        "level3obsession": 0
       }
     }
   },

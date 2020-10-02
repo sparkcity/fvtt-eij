@@ -46,7 +46,14 @@ export class SimpleActorSheet extends ActorSheet {
       }
     });
 
-    html.find('a.rowlabel.sk1').click(ev => {
+  //Rolling for skills decreases willpower by the any amount spent
+    html.find('.column .row a.rowlabel.sk1').click(ev => {
+      skillroll();
+    });
+    html.find('.column .row a.rowlabel.sk2').click(ev => {
+      skillroll();
+    });
+    html.find('.column .row a.rowlabel.sk3').click(ev => {
       skillroll();
     });
 

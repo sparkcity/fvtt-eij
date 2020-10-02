@@ -1,22 +1,17 @@
 [![Foundry](https://img.shields.io/badge/Foundry-0.6.5-green)](https://foundryvtt.com/)
-![GitHub All Releases](https://img.shields.io/github/downloads/sparkcity/fvtt-laf/total)
+![GitHub All Releases](https://img.shields.io/github/downloads/sparkcity/fvtt-eij/total)
 
-# Lasers & Feelings
-An implementation for Foundry VTT of the one-page system, [Lasers & Feelings v1.3](http://onesevendesign.com/lasers_and_feelings_rpg.pdf), by John Harper. 
+# Everyone is John
+An implementation for Foundry VTT of the one-page system, [Everyone is John](https://overlycommonname.github.io/john.html), by Michael Sullivan. Everyone is John is a competitive roleplaying game designed to be played by three or more people.
 
 ## Resources
-* [Lasers & Feelings v1.3](http://onesevendesign.com/lasers_and_feelings_rpg.pdf)
-* John Harper's [One Seven Design](http://onesevendesign.com/)
+* [Everyone is John](https://overlycommonname.github.io/john.html)
 
 ## Content
+* Everyone is John Compendium: A copy of the Everyone is John one-page system (allowed under CC BY 4.0)
+* Character sheets for players with easy rolling automation
 
-* Lasers & Feelings Compendiums: Lasers & Feelings roll tables, Macro for easy adventure generation, a copy of the Lasers & Feelings one-page system (allowed under CC BY-NCSA 3.0)
-* Character sheets for Player Characters with buttons for easy rolling
-
-![Image](https://github.com/sparkcity/fvttprojects/blob/master/screenshots/laf0.png?raw=true "Lasers & Feelings Overview")
-
-## Known Bugs
-* Though the system doesn't really use items for anything other than flavor, trying to create an item will throw an error in console and item sheets cannot be created/opened
+![Image]( "Everyone is John Overview")
 
 # License
-John Harper's Lasers & Feelings is licensed under [CC BY-NCSA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/us/).
+Everyone is John is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0). Everyone is John is © 2002 by Michael Sullivan.

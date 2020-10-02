@@ -55,7 +55,7 @@
   border-top: 2px solid black;
 }
 
-.column:nth-child(odd) {
+.column:nth-child(1) {
   border-right: 2px solid black;
 }
 
@@ -233,11 +233,12 @@ margin-left: 40%;
 .column .row a.rowlabel{
   margin-left: 2px;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: Daniel;
 }
 
 .column .row input.skillinput{
+  margin-top: 10px;
   margin-left: 10px;
   width: 250px;
 }
