@@ -226,7 +226,7 @@
 margin-left: 40%;
 }
 
-.column .row span.headerRow.obsessions{
+.column .rowcontainer .row.headrow span.headerRow.obsessions{
   margin-left: 25%;
 }
 

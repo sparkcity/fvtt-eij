@@ -34,27 +34,37 @@ export class SimpleActorSheet extends ActorSheet {
     
     super.activateListeners(html);
 
+    var characterName = $(html).parents('.app').find('.sheet-header h1.charname input')[0].value;
+
+    html.find('.sheet-header h1.charname input').change(ev => {
+      characterName = $(html).parents('.app').find('.sheet-header h1.charname input')[0].value;
+    });
+
     //If a third skill is taken, the starting willpower is 7. Otherwise, the starting willpower is the standard 10.
     html.find('input.special').change(ev => {
       var sk3 = $(html).parents('.app').find('input.special')[0].value;
       if(sk3 === ""){
         console.log("No skill 3 detected.");
-        $(html).parents('.app').find('.willpowerInput')[0].value = 10;
+        let thisActor = game.actors.getName(characterName);
+        const newWillpower = 10;
+        thisActor.update({ 'data.willpower': newWillpower });
       }
       else{
-        $(html).parents('.app').find('.willpowerInput')[0].value = 7;
+        let thisActor = game.actors.getName(characterName);
+        const newWillpower = 7;
+        thisActor.update({ 'data.willpower': newWillpower });
       }
     });
 
   //Rolling for skills decreases willpower by the any amount spent
     html.find('.column .row a.rowlabel.sk1').click(ev => {
-      skillroll();
+      skillroll(characterName, 1);
     });
     html.find('.column .row a.rowlabel.sk2').click(ev => {
-      skillroll();
+      skillroll(characterName, 2);
     });
     html.find('.column .row a.rowlabel.sk3').click(ev => {
-      skillroll();
+      skillroll(characterName, 3);
     });
 
   }//end of activatelisteners
