@@ -9,7 +9,7 @@ An implementation for Foundry VTT of the one-page system, [Everyone is John](htt
 
 ## Content
 * Everyone is John Compendium: A copy of the Everyone is John one-page system (allowed under CC BY 4.0)
-* Character sheets for players with easy rolling automation
+* Character sheets for players with easy rolling automation and willpower tracking
 
 ![Image](https://raw.githubusercontent.com/sparkcity/fvttprojects/master/screenshots/eij.png "Everyone is John Overview")
 
