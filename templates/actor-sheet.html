@@ -1,0 +1,98 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+      <div class="header-fields">
+          <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize SIMPLE.Name}}" /></h1>
+
+            <div class="subfieldsBlock">
+              <span class="willpowerLabel">Willpower</span>
+              <input class="willpowerInput" name="data.willpower" value="{{data.willpower}}" data-dtype="Number" placeholder="10"></select>
+            </div>
+
+
+      </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    <div class="body-container">
+      
+      <div class="column"><!-- start column -->
+
+        <div class="rowcontainer">
+          <div class="row headrow"><!-- start header row -->
+            <span class="headerRow skills">Skills</span>
+          </div><!-- end header row -->
+        </div>
+
+        <div class="rowcontainer">
+          <div class="row">
+            <a class="rowlabel sk1">Skill One: </span>
+          </div>
+          <div class="row">
+            <input class="skillinput sk1" name="data.skills.skill1" value="{{data.skills.skill1}}" data-dtype="Text"></select>
+          </div>
+        </div>
+
+        <div class="rowcontainer">
+          <div class="row">
+            <a class="rowlabel sk2">Skill Two: </span>
+          </div>
+          <div class="row">
+            <input class="skillinput sk2" name="data.skills.skill2" value="{{data.skills.skill2}}" data-dtype="Text"></select>
+          </div>
+        </div>
+
+        <div class="rowcontainer">
+          <div class="row">
+            <a class="rowlabel sk3">Skill Three: </span>
+          </div>
+          <div class="row">
+            <input class="skillinput special sk3" name="data.skills.skill3" value="{{data.skills.skill3}}" data-dtype="Text"></select>
+          </div>
+        </div>
+
+      </div><!-- end column -->
+
+      <div class="column"><!-- start column -->
+
+        <div class="rowcontainer">
+          <div class="row headrow"><!-- start header row -->
+            <span class="headerRow obsessions">Obsessions</span>
+          </div><!-- end header row -->
+        </div>
+
+        <div class="rowcontainer">
+          <div class="row">
+            <a class="rowlabel ob1">Level One: </span>
+          </div>
+          <div class="row">
+            <input class="skillinput ob1" name="data.obsessions.level1obsession" value="{{data.obsessions.level1obsession}}" data-dtype="Text" placeholder="Pretty easy to accomplish..."></select>
+          </div>
+        </div>
+
+        <div class="rowcontainer">
+          <div class="row">
+            <a class="rowlabel ob2">Level Two: </span>
+          </div>
+          <div class="row">
+            <input class="skillinput ob2" name="data.obsessions.level2obsession" value="{{ddata.obsessions.level2obsession}}" data-dtype="Text" placeholder="More difficult or risky..."></select>
+          </div>
+        </div>
+
+        <div class="rowcontainer">
+          <div class="row">
+            <a class="rowlabel ob3">Level Three: </span>
+          </div>
+          <div class="row">
+            <input class="skillinput ob3" name="data.obsessions.level3obsession" value="{{data.obsessions.level3obsession}}" data-dtype="Text" placeholder="Nearly impossible to accomplish..."></select>
+          </div>
+        </div>
+
+      </div><!-- end column -->
+
+    </div><!-- body-container ends here -->
+  </section><!-- sheet-body ends here -->
+</form>

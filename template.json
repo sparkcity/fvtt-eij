@@ -1,0 +1,34 @@
+{
+  "Actor": 
+  {
+    "types": ["character"],
+    "character": {
+      "notepad": "",
+      "willpower": 10,
+      "skills": {
+        "skill1": "",
+        "skill2": "",
+        "skill3": ""
+      },
+      "obsessions": {
+        "level1obsession": "",
+        "level2obsession": "",
+        "level3obsession": ""
+      }
+    }
+  },
+
+  "Item": 
+  {
+    "types": ["item"],
+    "item": 
+    {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "attributes": 
+      {}
+    }
+  }
+
+}
