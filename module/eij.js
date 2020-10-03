@@ -138,5 +138,48 @@ function subtractWillpower(characterName, amt){
   thisActor.update({ 'data.willpower': newWillpower });
 }
 
+/*
+@param {String} characterName - The name of the character passed in as a string from actor-sheet.js
+@param {Integer} skNum - The skill number passed in from actor-sheet.js
+*/
+function subtractBid(characterName){
 
-export { skillroll, updateScore };
+  let dialogTemplate = '<h1>Subtract Bid?:</h1> <p> Subtract Bid from total willpower? There is no undoing this action. Only perform this action after you know that you have the winning bid.</p> <input class="bidbox" data-dtype="Number" placeholder="0"></select>';
+  let thisActor = game.actors.getName(characterName);
+
+  new Dialog({
+      title: "Subtract Bid", 
+      content: dialogTemplate,
+      buttons: {
+        subBid: {
+          label: "Subtract Bid", 
+          callback: (html) => {
+
+            let subtractThis = 0;
+            if($(html).parents('.app').find('input.bidbox')[0].value > 0){
+              subtractThis = $(html).parents('.app').find('input.bidbox')[0].value;
+            }
+
+            subtractWillpower(characterName, subtractThis);
+
+            let chatTemplate = `
+            <p><b>Active Voice</b>: ${characterName}</p>
+            <p><b>Bid Subtracted from Willpower:</b> ${subtractThis}</p>
+            `;
+            ChatMessage.create({
+              content: chatTemplate,
+              speaker: {alias: characterName}
+            })      
+          }
+
+        }, 
+        close: {
+          label: "Close"
+        }
+      }
+    }).render(true)  
+
+}
+
+
+export { skillroll, updateScore, subtractBid };

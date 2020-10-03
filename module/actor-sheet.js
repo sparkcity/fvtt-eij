@@ -1,5 +1,5 @@
 import { ATTRIBUTE_TYPES } from "./constants.js";
-import { skillroll, updateScore } from "../module/eij.js";
+import { skillroll, updateScore, subtractBid } from "./eij.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -77,6 +77,11 @@ export class SimpleActorSheet extends ActorSheet {
     html.find('.column .row a.rowlabel.ob3').click(ev => {
       updateScore(characterName, 3);
     });
+
+  //Subtract bid button
+  html.find('button.subtractBid').click(ev => {
+    subtractBid(characterName);
+  });
 
   }//end of activatelisteners
 
