@@ -17,8 +17,9 @@ function skillroll(characterName, skNum){
           callback: (html) => {
 
             let spend = 0;
-            if($(html).parents('.app').find('input.skrollbox')[0].value > 0){
-              spend = $(html).parents('.app').find('input.skrollbox')[0].value;
+            
+            if($(html).find('input.skrollbox')[0].value > 0){
+              spend = $(html).find('input.skrollbox')[0].value;
             }
 
             let newRollString = `1d6 + ${spend}`;
@@ -156,8 +157,8 @@ function subtractBid(characterName){
           callback: (html) => {
 
             let subtractThis = 0;
-            if($(html).parents('.app').find('input.bidbox')[0].value > 0){
-              subtractThis = $(html).parents('.app').find('input.bidbox')[0].value;
+            if($(html).find('input.bidbox')[0].value > 0){
+              subtractThis = $(html).find('input.bidbox')[0].value;
             }
 
             subtractWillpower(characterName, subtractThis);
