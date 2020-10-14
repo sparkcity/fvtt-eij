@@ -1,4 +1,5 @@
-[![Foundry](https://img.shields.io/badge/Foundry-0.6.5-green)](https://foundryvtt.com/)
+[![Foundry](https://img.shields.io/badge/Foundry%40MinimumCore-0.6.6-yellow)](https://foundryvtt.com/)
+[![Foundry](https://img.shields.io/badge/Foundry%40CompatibleCore-0.7.4-yellow)](https://foundryvtt.com/)
 ![GitHub All Releases](https://img.shields.io/github/downloads/sparkcity/fvtt-eij/total)
 
 # Everyone is John
