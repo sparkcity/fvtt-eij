@@ -1,6 +1,7 @@
 [![Foundry](https://img.shields.io/badge/Foundry%40MinimumCore-0.6.6-yellow)](https://foundryvtt.com/)
-[![Foundry](https://img.shields.io/badge/Foundry%40CompatibleCore-0.7.4-yellow)](https://foundryvtt.com/)
+[![Foundry](https://img.shields.io/badge/Foundry%40CompatibleCore-0.7.4-brightgreen)](https://foundryvtt.com/)
 ![GitHub All Releases](https://img.shields.io/github/downloads/sparkcity/fvtt-eij/total)
+![GitHub Latest Release](https://img.shields.io/github/downloads/sparkcity/fvtt-eij/latest/total)
 
 # Everyone is John
 An implementation for Foundry VTT of the one-page system, [Everyone is John](https://overlycommonname.github.io/john.html), by Michael Sullivan. Everyone is John is a competitive roleplaying game designed to be played by three or more people.
