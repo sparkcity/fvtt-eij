@@ -22,9 +22,8 @@ export class SimpleActorSheet extends ActorSheet {
   /* -------------------------------------------- */
   /** @override */
   getData() {
-    const  data = super.getData();
-    data.dtypes = ["String", "Number", "Boolean"];
-    return  data;
+    const baseData = super.getData();
+    return { actor: baseData.actor, data: baseData.data.data, dtypes: ["String", "Number", "Boolean"] };
     }
 
   /* -------------------------------------------- */
