@@ -115,7 +115,7 @@ export class SimpleItemSheet extends ItemSheet {
     formData = Object.entries(formData).filter(e => !e[0].startsWith("data.attributes")).reduce((obj, e) => {
       obj[e[0]] = e[1];
       return obj;
-    }, {_id: this.object._id, "data.attributes": attributes});
+    }, {_id: this.object.data._id, "data.attributes": attributes});
 
     // Update the Item
     return this.object.update(formData);
