@@ -3,8 +3,8 @@
   "title": "Everyone is John",
   "description": "Support for Everyone is John by Michael Sullivan, a competitive roleplaying game for three or more horrible people. Implementation based entirely on the Simple Worldbuilding System by Atropos.",
   "version": "1.6.0",
-  "minimumCoreVersion": "0.6.6",
-  "compatibleCoreVersion": "0.7.5",
+  "minimumCoreVersion": "0.8.0",
+  "compatibleCoreVersion": "0.8.9",
   "templateVersion": 2,
   "author": "Parker S.",
   "packs": [
