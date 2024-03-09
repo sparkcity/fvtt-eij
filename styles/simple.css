@@ -3,11 +3,12 @@
   src: url('../assets/fonts/danielbd.ttf');
 }
 
-.eij {
+/* .eij {
   /* Sheet Tabs */
   /* Items List */
   /* Attributes */
-}
+/* } */
+
 .eij .window-content {
   background: url("../assets/bg.jpg");
   height: 100%;
@@ -277,6 +278,6 @@ input.bidbox{
   margin-left: 100px;
 }
 
-button.subtractBid{
+button.willpowerButton{
   margin-top: 50px;
 }
