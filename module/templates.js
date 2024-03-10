@@ -8,7 +8,7 @@ export const preloadHandlebarsTemplates = async function() {
   // Define template paths to load
   const templatePaths = [
     // Attribute list partial.
-    "systems/eij/templates/parts/sheet-attributes.html"
+    "systems/fvtt-eij/templates/parts/sheet-attributes.html"
   ];
 
   // Load the template parts

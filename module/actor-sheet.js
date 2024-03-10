@@ -1,5 +1,5 @@
 import { ATTRIBUTE_TYPES } from "./constants.js";
-import { skillroll, updateScore, subtractBid } from "./eij.js";
+import { skillroll, updateScore, subtractBid, addWillpower } from "./eij.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -11,7 +11,7 @@ export class SimpleActorSheet extends ActorSheet {
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
   	  classes: ["eij", "sheet", "actor"],
-  	  template: "systems/eij/templates/actor-sheet.html",
+  	  template: "systems/fvtt-eij/templates/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
@@ -80,6 +80,11 @@ export class SimpleActorSheet extends ActorSheet {
   //Subtract bid button
   html.find('button.subtractBid').click(ev => {
     subtractBid(characterName);
+  });
+
+  // Recover willpower button
+  html.find('button.addWillpower').click(ev => {
+    addWillpower(characterName, 1);
   });
 
   }//end of activatelisteners

@@ -113,12 +113,13 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
     name: game.i18n.localize("SIMPLE.DefineTemplate"),
     icon: '<i class="fas fa-stamp"></i>',
     condition: li => {
-      const actor = game.actors.get(li.data("entityId"));
-      return !actor.getFlag("eij", "isTemplate");
+      const actor = game.actors.get(li.data("documentId"));
+      return !actor.isTemplate
+      // return !actor.getFlag("eij", "isTemplate");
     },
     callback: li => {
-      const actor = game.actors.get(li.data("entityId"));
-      actor.setFlag("eij", "isTemplate", true);
+      const actor = game.actors.get(li.data("documentId"));
+      actor.setFlag("fvtt-eij", "isTemplate", true);
     }
   });
 
@@ -127,12 +128,12 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
     name: game.i18n.localize("SIMPLE.UnsetTemplate"),
     icon: '<i class="fas fa-times"></i>',
     condition: li => {
-      const actor = game.actors.get(li.data("entityId"));
-      return actor.getFlag("eij", "isTemplate");
+      const actor = game.actors.get(li.data("documentId"));
+      return actor.getFlag("fvtt-eij", "isTemplate");
     },
     callback: li => {
-      const actor = game.actors.get(li.data("entityId"));
-      actor.setFlag("eij", "isTemplate", false);
+      const actor = game.actors.get(li.data("documentId"));
+      actor.setFlag("fvtt-eij", "isTemplate", false);
     }
   });
 });
@@ -146,12 +147,12 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
     name: game.i18n.localize("SIMPLE.DefineTemplate"),
     icon: '<i class="fas fa-stamp"></i>',
     condition: li => {
-      const item = game.items.get(li.data("entityId"));
-      return !item.getFlag("eij", "isTemplate");
+      const item = game.items.get(li.data("documentId"));
+      return !item.getFlag("fvtt-eij", "isTemplate");
     },
     callback: li => {
-      const item = game.items.get(li.data("entityId"));
-      item.setFlag("eij", "isTemplate", true);
+      const item = game.items.get(li.data("documentId"));
+      item.setFlag("fvtt-eij", "isTemplate", true);
     }
   });
 
@@ -160,12 +161,12 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
     name: game.i18n.localize("SIMPLE.UnsetTemplate"),
     icon: '<i class="fas fa-times"></i>',
     condition: li => {
-      const item = game.items.get(li.data("entityId"));
-      return item.getFlag("eij", "isTemplate");
+      const item = game.items.get(li.data("documentId"));
+      return item.getFlag("fvtt-eij", "isTemplate");
     },
     callback: li => {
-      const item = game.items.get(li.data("entityId"));
-      item.setFlag("eij", "isTemplate", false);
+      const item = game.items.get(li.data("documentId"));
+      item.setFlag("fvtt-eij", "isTemplate", false);
     }
   });
 });
@@ -238,7 +239,7 @@ async function _simpleDirectoryTemplates(entityType = 'actor') {
 
     // Render the entity creation form
     let templateData = {upper: ent, lower: ent.toLowerCase(), types: types},
-        dlg = await renderTemplate(`systems/eij/templates/sidebar/entity-create.html`, templateData);
+        dlg = await renderTemplate(`systems/fvtt-eij/templates/sidebar/entity-create.html`, templateData);
 
     // Render the confirmation dialog window
     new Dialog({
