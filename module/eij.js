@@ -29,13 +29,13 @@ function skillroll(characterName, skNum) {
 
           switch (skNum) {
             case 1:
-              skillDesc = thisActor.data.data.skills.skill1;
+              skillDesc = thisActor.system.skills.skill1;
               break;
             case 2:
-              skillDesc = thisActor.data.data.skills.skill2;
+              skillDesc = thisActor.system.skills.skill2;
               break;
             case 3:
-              skillDesc = thisActor.data.data.skills.skill3;
+              skillDesc = thisActor.system.skills.skill3;
               break;
           }
 
@@ -81,29 +81,29 @@ function updateScore(characterName, obLvl) {
 
   switch (obLvl) {
     case 1:
-      newTally = thisActor.data.data.scores.level1obsession + 1;
-      newTotal = thisActor.data.data.scores.total + 1;
+      newTally = thisActor.system.scores.level1obsession + 1;
+      newTotal = thisActor.system.scores.total + 1;
       thisActor.update({
-        "data.scores.level1obsession": newTally,
-        "data.scores.total": newTotal,
+        "system.scores.level1obsession": newTally,
+        "system.scores.total": newTotal,
       });
       messageContent = `<p><b>Level 1 Obsession Complete</b></p>`;
       break;
     case 2:
-      newTally = thisActor.data.data.scores.level2obsession + 1;
-      newTotal = thisActor.data.data.scores.total + 2;
+      newTally = thisActor.system.scores.level2obsession + 1;
+      newTotal = thisActor.system.scores.total + 2;
       thisActor.update({
-        "data.scores.level2obsession": newTally,
-        "data.scores.total": newTotal,
+        "system.scores.level2obsession": newTally,
+        "system.scores.total": newTotal,
       });
       messageContent = `<p><b>Level 2 Obsession Complete</b></p>`;
       break;
     case 3:
-      newTally = thisActor.data.data.scores.level3obsession + 1;
-      newTotal = thisActor.data.data.scores.total + 3;
+      newTally = thisActor.system.scores.level3obsession + 1;
+      newTotal = thisActor.system.scores.total + 3;
       thisActor.update({
-        "data.scores.level3obsession": newTally,
-        "data.scores.total": newTotal,
+        "system.scores.level3obsession": newTally,
+        "system.scores.total": newTotal,
       });
       messageContent = `<p><b>Level 3 Obsession Complete</b></p>`;
       break;
@@ -121,8 +121,8 @@ function updateScore(characterName, obLvl) {
 */
 function addWillpower(characterName, amt) {
   let thisActor = game.actors.getName(characterName);
-  const newWillpower = thisActor.data.data.willpower + amt;
-  thisActor.update({ "data.willpower": newWillpower });
+  const newWillpower = thisActor.system.willpower + amt;
+  thisActor.update({ "system.willpower": newWillpower });
 
   let chatTemplate = `
             <p><b>${characterName}</b> recovered ${amt} willpower</p>
@@ -140,8 +140,8 @@ function addWillpower(characterName, amt) {
 */
 function subtractWillpower(characterName, amt) {
   let thisActor = game.actors.getName(characterName);
-  const newWillpower = thisActor.data.data.willpower - amt;
-  thisActor.update({ "data.willpower": newWillpower });
+  const newWillpower = thisActor.system.willpower - amt;
+  thisActor.update({ "system.willpower": newWillpower });
 }
 
 /*
@@ -171,7 +171,7 @@ function subtractBid(characterName) {
             <p><b>Active Voice</b>: ${characterName}</p>
             <p><b>Bid Subtracted from Willpower:</b> ${subtractThis}</p>
             <p><b>New willpower:</b> ${
-              thisActor.data.data.willpower - subtractThis
+              thisActor.system.willpower - subtractThis
             }</p>
             `;
           ChatMessage.create({
