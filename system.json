@@ -1,8 +1,8 @@
 {
   "id": "fvtt-eij",
   "title": "Everyone is John",
-  "description": "Support for Everyone is John by Michael Sullivan, a competitive roleplaying game for three or more horrible people. Implementation based entirely on the Simple Worldbuilding System by Atropos.",
-  "version": "3",
+  "description": "Support for Everyone is John by Michael Sullivan, a competitive roleplaying game for three or more horrible people. Implementation based entirely on the Simple Worldbuilding System by Atropos. Significant overhauls to bring compatibility up-to-date by Galen White.",
+  "version": "3.2.0",
   "minimumCoreVersion": "12",
   "compatibleCoreVersion": "12",
   "compatibility": {
@@ -13,17 +13,17 @@
   "author": "Parker; Galen White",
   "packs": [
     {
-			"id": "how-to-play",
+			"name": "how-to-play",
 			"label": "How to Play",
 			"system": "fvtt-eij",
-			"path": "./packs/how-to-play.db",
+			"path": "packs/how-to-play.db",
 			"entity": "JournalEntry"
     },
     {
-			"id": "determine-winner",
+			"name": "determine-winner",
 			"label": "Determine Winner",
 			"system": "fvtt-eij",
-			"path": "./packs/determine-winner.db",
+			"path": "packs/determine-winner.db",
 			"entity": "Macro"
 		}
   ],
