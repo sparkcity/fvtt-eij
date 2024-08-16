@@ -4,9 +4,8 @@
 */
 function skillroll(characterName, skNum) {
   let dialogTemplate =
-    '<h1>Spend Willpower?:</h1> <input class="skrollbox" data-dtype="Number" placeholder="0"></select>';
+    '<h1>Spend Willpower?:</h1> <input class="skrollbox" data-dtype="Number" placeholder="0">';
   let thisActor = game.actors.getName(characterName);
-  console.log(thisActor);
 
   new Dialog({
     title: "Roll Skill",
@@ -14,7 +13,7 @@ function skillroll(characterName, skNum) {
     buttons: {
       rollSk: {
         label: "Roll Skill",
-        callback: (html) => {
+        callback: async (html) => {
           let spend = 0;
 
           if ($(html).find("input.skrollbox")[0].value > 0) {
@@ -22,7 +21,8 @@ function skillroll(characterName, skNum) {
           }
 
           let newRollString = `1d6 + ${spend}`;
-          let roll = new Roll(newRollString).roll();
+          let roll = new Roll(newRollString);
+          await roll.evaluate();
           let result = roll.total;
           let chatTemplate = "";
           let skillDesc = "";
@@ -124,7 +124,7 @@ function addWillpower(characterName, amt) {
   const newWillpower = thisActor.data.data.willpower + amt;
   thisActor.update({ "data.willpower": newWillpower });
 
-   let chatTemplate = `
+  let chatTemplate = `
             <p><b>${characterName}</b> recovered ${amt} willpower</p>
             <p><b>New willpower:</b> ${newWillpower}</p>
             `;
@@ -170,7 +170,9 @@ function subtractBid(characterName) {
           let chatTemplate = `
             <p><b>Active Voice</b>: ${characterName}</p>
             <p><b>Bid Subtracted from Willpower:</b> ${subtractThis}</p>
-            <p><b>New willpower:</b> ${thisActor.data.data.willpower - subtractThis}</p>
+            <p><b>New willpower:</b> ${
+              thisActor.data.data.willpower - subtractThis
+            }</p>
             `;
           ChatMessage.create({
             content: chatTemplate,
