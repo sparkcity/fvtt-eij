@@ -17,14 +17,14 @@
 			"label": "How to Play",
 			"system": "fvtt-eij",
 			"path": "packs/how-to-play.db",
-			"entity": "JournalEntry"
+			"type": "JournalEntry"
     },
     {
 			"name": "determine-winner",
 			"label": "Determine Winner",
 			"system": "fvtt-eij",
 			"path": "packs/determine-winner.db",
-			"entity": "Macro"
+			"type": "Macro"
 		}
   ],
   "esmodules": [
