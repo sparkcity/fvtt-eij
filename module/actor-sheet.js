@@ -5,7 +5,7 @@ import { skillroll, updateScore, subtractBid, addWillpower } from "./eij.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class SimpleActorSheet extends ActorSheet {
+export class EveryoneIsJohnActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {

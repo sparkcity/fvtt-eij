@@ -5,17 +5,16 @@
  */
 
 // Import Modules
-import { SimpleActor } from "./actor.js";
+import { EveryoneIsJohnActor } from "./actor.js";
 import { SimpleItemSheet } from "./item-sheet.js";
-import { SimpleActorSheet } from "./actor-sheet.js";
+import { EveryoneIsJohnActorSheet } from "./actor-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", async function() {
- 
+Hooks.once("init", async function () {
   console.log("Localization...");
   game.settings.register("eij", "Name", {
     name: "SIMPLE.Name",
@@ -23,25 +22,25 @@ Hooks.once("init", async function() {
     scope: "world",
     type: String,
     default: true,
-    config: true
+    config: true,
   });
 
-  console.log(`Initializing Lasers & Feelings System`);
+  console.log(`Initializing Everyone is John System`);
   /**
    * Set an initiative formula for the system. This will be updated later.
    * @type {String}
    */
   CONFIG.Combat.initiative = {
     formula: "1d20",
-    decimals: 2
+    decimals: 2,
   };
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = SimpleActor;
+  CONFIG.Actor.entityClass = EveryoneIsJohnActor;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("eij", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("eij", EveryoneIsJohnActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("eij", SimpleItemSheet, { makeDefault: true });
 
@@ -52,7 +51,7 @@ Hooks.once("init", async function() {
     scope: "world",
     type: Boolean,
     default: true,
-    config: true
+    config: true,
   });
 
   // Register initiative setting.
@@ -63,7 +62,7 @@ Hooks.once("init", async function() {
     type: String,
     default: "1d20",
     config: true,
-    onChange: formula => _simpleUpdateInit(formula, true)
+    onChange: (formula) => _simpleUpdateInit(formula, true),
   });
 
   // Retrieve and assign the initiative formula setting.
@@ -81,14 +80,17 @@ Hooks.once("init", async function() {
       new Roll(formula).roll();
       CONFIG.Combat.initiative.formula = formula;
       if (notify) {
-        ui.notifications.notify(game.i18n.localize("SIMPLE.NotifyInitFormulaUpdated") + ` ${formula}`);
+        ui.notifications.notify(
+          game.i18n.localize("SIMPLE.NotifyInitFormulaUpdated") + ` ${formula}`
+        );
       }
-    }
-    // Otherwise, fall back to a d20.
-    catch (error) {
+    } catch (error) {
+      // Otherwise, fall back to a d20.
       CONFIG.Combat.initiative.formula = "1d20";
       if (notify) {
-        ui.notifications.error(game.i18n.localize("SIMPLE.NotifyInitFormulaInvalid") + ` ${formula}`);
+        ui.notifications.error(
+          game.i18n.localize("SIMPLE.NotifyInitFormulaInvalid") + ` ${formula}`
+        );
       }
     }
   }
@@ -96,8 +98,8 @@ Hooks.once("init", async function() {
   /**
    * Slugify a string.
    */
-  Handlebars.registerHelper('slugify', function(value) {
-    return value.slugify({strict: true});
+  Handlebars.registerHelper("slugify", function (value) {
+    return value.slugify({ strict: true });
   });
 
   // Preload template partials.
@@ -112,29 +114,29 @@ Hooks.on("getActorDirectoryEntryContext", (html, options) => {
   options.push({
     name: game.i18n.localize("SIMPLE.DefineTemplate"),
     icon: '<i class="fas fa-stamp"></i>',
-    condition: li => {
+    condition: (li) => {
       const actor = game.actors.get(li.data("documentId"));
-      return !actor.isTemplate
+      return !actor.isTemplate;
       // return !actor.getFlag("eij", "isTemplate");
     },
-    callback: li => {
+    callback: (li) => {
       const actor = game.actors.get(li.data("documentId"));
       actor.setFlag("fvtt-eij", "isTemplate", true);
-    }
+    },
   });
 
   // Undefine an actor as a template.
   options.push({
     name: game.i18n.localize("SIMPLE.UnsetTemplate"),
     icon: '<i class="fas fa-times"></i>',
-    condition: li => {
+    condition: (li) => {
       const actor = game.actors.get(li.data("documentId"));
       return actor.getFlag("fvtt-eij", "isTemplate");
     },
-    callback: li => {
+    callback: (li) => {
       const actor = game.actors.get(li.data("documentId"));
       actor.setFlag("fvtt-eij", "isTemplate", false);
-    }
+    },
   });
 });
 
@@ -146,31 +148,30 @@ Hooks.on("getItemDirectoryEntryContext", (html, options) => {
   options.push({
     name: game.i18n.localize("SIMPLE.DefineTemplate"),
     icon: '<i class="fas fa-stamp"></i>',
-    condition: li => {
+    condition: (li) => {
       const item = game.items.get(li.data("documentId"));
       return !item.getFlag("fvtt-eij", "isTemplate");
     },
-    callback: li => {
+    callback: (li) => {
       const item = game.items.get(li.data("documentId"));
       item.setFlag("fvtt-eij", "isTemplate", true);
-    }
+    },
   });
 
   // Undefine an item as a template.
   options.push({
     name: game.i18n.localize("SIMPLE.UnsetTemplate"),
     icon: '<i class="fas fa-times"></i>',
-    condition: li => {
+    condition: (li) => {
       const item = game.items.get(li.data("documentId"));
       return item.getFlag("fvtt-eij", "isTemplate");
     },
-    callback: li => {
+    callback: (li) => {
       const item = game.items.get(li.data("documentId"));
       item.setFlag("fvtt-eij", "isTemplate", false);
-    }
+    },
   });
 });
-
 
 /**
  * Adds the actor template selection dialog.
@@ -180,8 +181,8 @@ ActorDirectory.prototype._onCreate = async (event) => {
   event.preventDefault();
   event.stopPropagation();
 
-  _simpleDirectoryTemplates('actor');
-}
+  _simpleDirectoryTemplates("actor");
+};
 
 /**
  * Adds the item template selection dialog.
@@ -191,8 +192,8 @@ ItemDirectory.prototype._onCreate = async (event) => {
   event.preventDefault();
   event.stopPropagation();
 
-  _simpleDirectoryTemplates('item');
-}
+  _simpleDirectoryTemplates("item");
+};
 
 /**
  * Display the entity template dialog.
@@ -202,44 +203,53 @@ ItemDirectory.prototype._onCreate = async (event) => {
  *
  * @param {string} entityType - 'actor' or 'item'
  */
-async function _simpleDirectoryTemplates(entityType = 'actor') {
+async function _simpleDirectoryTemplates(entityType = "actor") {
   // Retrieve the collection and class.
-  const entityCollection = entityType == 'actor' ? game.actors : game.items;
-  const cls = entityType == 'actor' ? Actor : Item;
+  const entityCollection = entityType == "actor" ? game.actors : game.items;
+  const cls = entityType == "actor" ? Actor : Item;
 
   // Query for all entities of this type using the "isTemplate" flag.
-  let entities = entityCollection.filter(a => a.data.flags?.eij?.isTemplate === true);
+  let entities = entityCollection.filter(
+    (a) => a.data.flags?.eij?.isTemplate === true
+  );
 
   // Initialize variables related to the entity class.
   let ent = game.i18n.localize(cls.config.label);
 
   // Setup entity data.
-  let type = entityType == 'actor' ? 'character' : 'item';
+  let type = entityType == "actor" ? "character" : "item";
   let createData = {
     name: `New ${ent}`,
     type: type,
-    folder: event.currentTarget.dataset.folder
+    folder: event.currentTarget.dataset.folder,
   };
 
   // If there's more than one entity template type, create a form.
   if (entities.length > 0) {
     // Build an array of types for the form, including an empty default.
-    let types = [{
-      value: null,
-      label: game.i18n.localize("SIMPLE.NoTemplate")
-    }];
+    let types = [
+      {
+        value: null,
+        label: game.i18n.localize("SIMPLE.NoTemplate"),
+      },
+    ];
 
     // Append each of the user-defined actor/item types.
-    types = types.concat(entities.map(a => {
-      return {
-        value: a.data.name,
-        label: a.data.name
-      }
-    }));
+    types = types.concat(
+      entities.map((a) => {
+        return {
+          value: a.data.name,
+          label: a.data.name,
+        };
+      })
+    );
 
     // Render the entity creation form
-    let templateData = {upper: ent, lower: ent.toLowerCase(), types: types},
-        dlg = await renderTemplate(`systems/fvtt-eij/templates/sidebar/entity-create.html`, templateData);
+    let templateData = { upper: ent, lower: ent.toLowerCase(), types: types },
+      dlg = await renderTemplate(
+        `systems/fvtt-eij/templates/sidebar/entity-create.html`,
+        templateData
+      );
 
     // Render the confirmation dialog window
     new Dialog({
@@ -249,7 +259,7 @@ async function _simpleDirectoryTemplates(entityType = 'actor') {
         create: {
           icon: '<i class="fas fa-check"></i>',
           label: `Create ${ent}`,
-          callback: html => {
+          callback: (html) => {
             // Get the form data.
             const form = html[0].querySelector("form");
             mergeObject(createData, validateForm(form));
@@ -260,7 +270,9 @@ async function _simpleDirectoryTemplates(entityType = 'actor') {
             // If there's a template entity, handle the data.
             if (templateActor) {
               // Update the object with the existing template's values.
-              createData = mergeObject(templateActor.data, createData, {inplace: false});
+              createData = mergeObject(templateActor.data, createData, {
+                inplace: false,
+              });
               createData.type = templateActor.data.type;
               // Clear the flag so that this doesn't become a new template.
               delete createData.flags.eij.isTemplate;
@@ -270,15 +282,15 @@ async function _simpleDirectoryTemplates(entityType = 'actor') {
               createData.type = type;
             }
 
-            cls.create(createData, {renderSheet: true});
-          }
-        }
+            cls.create(createData, { renderSheet: true });
+          },
+        },
       },
-      default: "create"
+      default: "create",
     }).render(true);
   }
   // Otherwise, just create a blank entity.
   else {
-    cls.create(createData, {renderSheet: true});
+    cls.create(createData, { renderSheet: true });
   }
 }
