@@ -29,12 +29,10 @@
         {{/if}}
         <input class="attribute-label" type="text" name="data.attributes.{{key}}.label" value="{{attr.label}}"/>
         <select class="attribute-dtype" name="data.attributes.{{key}}.dtype">
-            {{#select attr.dtype}}
-            {{#each ../dtypes as |t|}}
-            <option value="{{t}}">{{t}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
+		  {{#each ../dtypes as |t|}}
+			<option value="{{t}}" {{#if (eq t attr.dtype)}}selected{{/if}}>{{t}}</option>
+		  {{/each}}
+		</select>
         <a class="attribute-control" data-action="delete"><i class="fas fa-trash"></i></a>
     </li>
   {{/each}}

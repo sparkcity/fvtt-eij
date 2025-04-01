@@ -102,6 +102,24 @@ Hooks.once("init", async function () {
     return value.slugify({ strict: true });
   });
 
+  Handlebars.registerHelper("eq", function (v1, v2, options) {
+    if (v1 === v2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+  
+  Handlebars.registerHelper("eq", function(v1, v2) {
+    return v1 === v2;
+  });
+  
+  Handlebars.registerHelper("ifCond", function(v1, v2, options) {
+    if (v1 === v2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+
   // Preload template partials.
   preloadHandlebarsTemplates();
 });

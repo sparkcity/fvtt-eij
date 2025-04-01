@@ -27,13 +27,13 @@ export class SimpleItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const baseData = super.getData();
-    for (let attr of Object.values(baseData.system.attributes)) {
+    for (let attr of Object.values(baseData.data.system.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
       attr.isResource = attr.dtype === "Resource";
     }
     return {
       item: baseData.item,
-      data: baseData.system,
+      system: baseData.data.system,
       dtypes: ATTRIBUTE_TYPES,
     };
   }

@@ -24,8 +24,12 @@
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
+		{{log editable}}
+		{{log owner}}
+		{{log system}}
+		{{log system.description}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=system.description target="system.description" button=true owner=owner editable=editable}}
+            {{editor system.description target="system.description" button=true owner=owner editable=editable }}
         </div>
 
         {{!-- Attributes Tab --}}
@@ -39,7 +43,7 @@
             </header>
 
             {{!-- Render the attribute list partial. --}}
-            {{> "systems/fvtt-eij/templates/parts/sheet-attributes.html" attributes=system.attributes dtypes=dtypes}}
+            {{> systems/fvtt-eij/templates/parts/sheet-attributes.html attributes=system.attributes dtypes=dtypes}}
         </div>
     </section>
 </form>
