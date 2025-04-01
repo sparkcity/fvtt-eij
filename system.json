@@ -10,22 +10,26 @@
     "verified": "12"
   },
   "templateVersion": 2,
-  "author": "Parker; Galen White",
+  "authors": [
+    { "name": "Parker" },
+    { "name": "Galen White" },
+	{ "name": "jello195", "url": "https://ko-fi.com/jello195"}
+  ],
   "packs": [
     {
-			"name": "how-to-play",
-			"label": "How to Play",
-			"system": "fvtt-eij",
-			"path": "packs/how-to-play.db",
-			"type": "JournalEntry"
+		"name": "how-to-play",
+		"label": "How to Play",
+		"system": "fvtt-eij",
+		"path": "packs/how-to-play.db",
+		"type": "JournalEntry"
     },
     {
-			"name": "determine-winner",
-			"label": "Determine Winner",
-			"system": "fvtt-eij",
-			"path": "packs/determine-winner.db",
-			"type": "Macro"
-		}
+		"name": "determine-winner",
+		"label": "Determine Winner",
+		"system": "fvtt-eij",
+		"path": "packs/determine-winner.db",
+		"type": "Macro"
+	}
   ],
   "esmodules": [
     "./module/simple.js",
@@ -41,8 +45,10 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "grid": {
+	  "distance": 5,
+	  "units": "ft"
+	},
   "primaryTokenAttribute": "willpower",
   "url": "https://github.com/sparkcity/fvtt-eij",
   "manifest": "https://github.com/sparkcity/fvtt-eij/releases/latest/download/system.json",
