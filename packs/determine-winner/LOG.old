@@ -1,5 +1,11 @@
-2025/04/01-22:47:10.706 c270 Log #20: 0 ops saved to Table #21 OK
-2025/04/01-22:47:10.706 c270 Archiving C:\Users\jello\AppData\Local\FoundryVTT\Data\systems\fvtt-eij\packs\determine-winner/000020.log: OK
-2025/04/01-22:47:10.709 c270 Table #5: 3 entries OK
-2025/04/01-22:47:10.714 c270 Archiving C:\Users\jello\AppData\Local\FoundryVTT\Data\systems\fvtt-eij\packs\determine-winner/MANIFEST-000019: OK
-2025/04/01-22:47:10.721 c270 **** Repaired leveldb C:\Users\jello\AppData\Local\FoundryVTT\Data\systems\fvtt-eij\packs\determine-winner; recovered 1 files; 1119 bytes. Some data may have been lost. ****
+2025/04/01-22:47:10.733 c270 Delete type=3 #1
+2025/04/01-23:26:33.222 7ec Level-0 table #25: started
+2025/04/01-23:26:33.222 7ec Level-0 table #25: 0 bytes OK
+2025/04/01-23:26:33.233 7ec Delete type=0 #23
+2025/04/01-23:26:33.252 7ec Manual compaction at level-0 from '!macros!sGSpzatimfP7gcP8' @ 72057594037927935 : 1 .. '!macros!sGSpzatimfP7gcP8' @ 0 : 0; will stop at '!macros!sGSpzatimfP7gcP8' @ 1 : 1
+2025/04/01-23:26:33.252 7ec Compacting 1@0 + 0@1 files
+2025/04/01-23:26:33.262 7ec Generated table #26@0: 1 keys, 908 bytes
+2025/04/01-23:26:33.262 7ec Compacted 1@0 + 0@1 files => 908 bytes
+2025/04/01-23:26:33.266 7ec compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/04/01-23:26:33.266 7ec Delete type=2 #5
+2025/04/01-23:26:33.276 7ec Manual compaction at level-0 from '!macros!sGSpzatimfP7gcP8' @ 1 : 1 .. '!macros!sGSpzatimfP7gcP8' @ 0 : 0; will stop at (end)
