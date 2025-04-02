@@ -1,7 +1,0 @@
-2025/04/01-23:27:41.106 5ef4 Recovering log #24
-2025/04/01-23:27:41.118 5ef4 Delete type=0 #24
-2025/04/01-23:27:41.118 5ef4 Delete type=3 #22
-2025/04/01-23:28:00.673 642c Level-0 table #30: started
-2025/04/01-23:28:00.673 642c Level-0 table #30: 0 bytes OK
-2025/04/01-23:28:00.677 642c Delete type=0 #28
-2025/04/01-23:28:00.686 642c Manual compaction at level-0 from '!macros!sGSpzatimfP7gcP8' @ 72057594037927935 : 1 .. '!macros!sGSpzatimfP7gcP8' @ 0 : 0; will stop at (end)
