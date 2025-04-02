@@ -24,10 +24,6 @@
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
-		{{log editable}}
-		{{log owner}}
-		{{log system}}
-		{{log system.description}}
         <div class="tab" data-group="primary" data-tab="description">
             {{editor system.description target="system.description" button=true owner=owner editable=editable }}
         </div>

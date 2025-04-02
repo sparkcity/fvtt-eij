@@ -80,7 +80,7 @@
   height: 40px;
 }
 .eij .tabs .item {
-  border-style: double;
+  border-style: none;
   line-height: 40px;
   font-weight: bold;
 }
@@ -100,7 +100,7 @@
 }
 .eij .editor,
 .eij .editor-content {
-  height: 100px;
+  height: 100%;
   border: 2px solid #007dac;
 
 }
