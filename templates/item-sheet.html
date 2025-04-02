@@ -4,11 +4,11 @@
         <div class="header-fields">
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
             <div class="resource">
-            	<label>Quantity</label>
+            	<label>{{localize "ITEM.Qty"}}</label>
                 <input type="text" name="item.system.quantity" value="{{item.system.quantity}}" data-dtype="Number"/>
             </div>
             <div class="resource">
-            	<label>Weight</label>
+            	<label>{{localize "ITEM.Weight"}}</label>
                 <input type="text" name="item.system.weight" value="{{item.system.weight}}" data-dtype="Number"/>
             </div>
         </div>
@@ -16,8 +16,8 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="attributes">Attributes</a>
+        <a class="item" data-tab="description">{{localize "ITEM.Description"}}</a>
+        <a class="item" data-tab="attributes">{{localize "ITEM.Attributes.Attributes"}}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -31,10 +31,10 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             <header class="attributes-header flexrow">
-                <span class="attribute-key">Attribute Key</span>
-                <span class="attribute-value">Value</span>
-                <span class="attribute-label">Label</span>
-                <span class="attribute-dtype">Data Type</span>
+                <span class="attribute-key">{{localize "ITEM.Attributes.Key"}}</span>
+                <span class="attribute-value">{{localize "ITEM.Attributes.Value"}}</span>
+                <span class="attribute-label">{{localize "ITEM.Attributes.Label"}}</span>
+                <span class="attribute-dtype">{{localize "ITEM.Attributes.Dtype"}}</span>
                 <a class="attribute-control" data-action="create"><i class="fas fa-plus"></i></a>
             </header>
 
