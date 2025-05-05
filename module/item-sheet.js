@@ -27,13 +27,13 @@ export class SimpleItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const baseData = super.getData();
-    for (let attr of Object.values(baseData.system.attributes)) {
+    for (let attr of Object.values(baseData.data.system.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
       attr.isResource = attr.dtype === "Resource";
     }
     return {
       item: baseData.item,
-      data: baseData.system,
+      system: baseData.data.system,
       dtypes: ATTRIBUTE_TYPES,
     };
   }
@@ -111,35 +111,70 @@ export class SimpleItemSheet extends ItemSheet {
   /** @override */
   _updateObject(event, formData) {
     // Handle the free-form attributes list
-    const formAttrs = expandObject(formData).data.attributes || {};
-    const attributes = Object.values(formAttrs).reduce((obj, v) => {
-      let k = v["key"].trim();
-      if (/[\s\.]/.test(k))
-        return ui.notifications.error(
-          "Attribute keys may not contain spaces or periods"
-        );
-      delete v["key"];
-      obj[k] = v;
-      return obj;
-    }, {});
+	const expanded = foundry.utils.expandObject(formData);
+	const isLegacyStructure = expanded?.data?.attributes !== undefined;
+	if(isLegacyStructure){
+		const formAttrs = foundry.utils.expandObject(formData).data.attributes || {};
+		const attributes = Object.values(formAttrs).reduce((obj, v) => {
+		  let k = v["key"].trim();
+		  if (/[\s\.]/.test(k))
+			return ui.notifications.error(
+			  "Attribute keys may not contain spaces or periods"
+			);
+		  delete v["key"];
+		  obj[k] = v;
+		  return obj;
+		}, {});
 
-    // Remove attributes which are no longer used
-    for (let k of Object.keys(this.object.system.attributes)) {
-      if (!attributes.hasOwnProperty(k)) attributes[`-=${k}`] = null;
-    }
+		// Remove attributes which are no longer used
+		for (let k of Object.keys(this.object.system.attributes)) {
+		  if (!attributes.hasOwnProperty(k)) attributes[`-=${k}`] = null;
+		}
 
-    // Re-combine formData
-    formData = Object.entries(formData)
-      .filter((e) => !e[0].startsWith("data.attributes"))
-      .reduce(
-        (obj, e) => {
-          obj[e[0]] = e[1];
-          return obj;
-        },
-        { _id: this.object.data._id, "data.attributes": attributes }
-      );
+		// Re-combine formData
+		formData = Object.entries(formData)
+		  .filter((e) => !e[0].startsWith("system.attributes"))
+		  .reduce(
+			(obj, e) => {
+			  obj[e[0]] = e[1];
+			  return obj;
+			},
+			{ _id: this.object._id, "system.attributes": attributes }
+		  );
 
-    // Update the Item
-    return this.object.update(formData);
+		// Update the Item
+		return this.object.update(formData);
+	}else{
+		const formAttrs = expanded?.item?.system?.attributes ?? {};
+		const attributes = Object.values(formAttrs).reduce((obj, v) => {
+			let k = v["key"]?.trim();
+			if (!k) return obj;
+			if (/[\s\.]/.test(k)) {
+			  ui.notifications.error("Attribute keys may not contain spaces or periods");
+			  return obj;
+			}
+			delete v["key"];
+			obj[k] = v;
+			return obj;
+		  }, {});
+
+		// Remove attributes which are no longer used
+		for (let k of Object.keys(this.object.system.attributes)) {
+		  if (!attributes.hasOwnProperty(k)) attributes[`-=${k}`] = null;
+		}
+
+		const updateData = {
+			_id: this.object.id,
+			"system.attributes": attributes,
+			"system.description": expanded.system?.description ?? "",
+			"system.quantity": expanded.item?.system?.quantity ?? 0,
+			"system.weight": expanded.item?.system?.weight ?? 0,
+			name: expanded.name ?? this.object.name,
+			img: expanded.img ?? this.object.img,
+		  };
+		  
+		// Update the Item
+		return this.object.update(updateData);
+	}
   }
 }

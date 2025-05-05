@@ -2,30 +2,33 @@
   "id": "fvtt-eij",
   "title": "Everyone is John",
   "description": "Support for Everyone is John by Michael Sullivan, a competitive roleplaying game for three or more horrible people. Implementation based entirely on the Simple Worldbuilding System by Atropos. Significant overhauls to bring compatibility up-to-date by Galen White.",
-  "version": "3.2.0",
+  "version": "3.2.2",
   "minimumCoreVersion": "12",
   "compatibleCoreVersion": "12",
   "compatibility": {
     "minimum": "12",
-    "verified": "12"
+    "verified": "13.342"
   },
-  "templateVersion": 2,
-  "author": "Parker; Galen White",
+  "authors": [
+    { "name": "Parker" },
+    { "name": "Galen White" },
+	{ "name": "jello195", "url": "https://ko-fi.com/jello195"}
+  ],
   "packs": [
     {
-			"name": "how-to-play",
-			"label": "How to Play",
-			"system": "fvtt-eij",
-			"path": "packs/how-to-play.db",
-			"type": "JournalEntry"
+		"name": "how-to-play",
+		"label": "How to Play",
+		"system": "fvtt-eij",
+		"path": "packs/how-to-play.db",
+		"type": "JournalEntry"
     },
     {
-			"name": "determine-winner",
-			"label": "Determine Winner",
-			"system": "fvtt-eij",
-			"path": "packs/determine-winner.db",
-			"type": "Macro"
-		}
+		"name": "determine-winner",
+		"label": "Determine Winner",
+		"system": "fvtt-eij",
+		"path": "packs/determine-winner.db",
+		"type": "Macro"
+	}
   ],
   "esmodules": [
     "./module/simple.js",
@@ -37,12 +40,19 @@
   "languages": [
     {
       "lang": "en",
-      "id": "English",
+      "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
     }
   ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "grid": {
+	  "distance": 5,
+	  "units": "ft"
+	},
   "primaryTokenAttribute": "willpower",
   "url": "https://github.com/sparkcity/fvtt-eij",
   "manifest": "https://github.com/sparkcity/fvtt-eij/releases/latest/download/system.json",

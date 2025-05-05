@@ -1,14 +1,13 @@
 <form class="{{cssClass}}" autocomplete="off">
-
   {{!-- Sheet Header --}}
   <header class="sheet-header">
       <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
       <div class="header-fields">
-          <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
+          <h1 class="charname" {{#unless showName}}style="display:none;"{{/unless}}><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
 
             <div class="subfieldsBlock">
-              <span class="willpowerLabel">Willpower: </span>
-              <span class="wpNumber" name="actor.system.willpower" value="{{actor.system.willpower}}" data-dtype="Number">{{actor.system.willpower}}</select>
+              <span class="willpowerLabel">{{localize "SIMPLE.Willpower"}}: </span>
+              <span class="wpNumber">{{actor.system.willpower}}</span>
             </div>
 
 
@@ -23,34 +22,34 @@
 
         <div class="rowcontainer">
           <div class="row headrow"><!-- start header row -->
-            <span class="headerRow skills">Skills</span>
+            <span class="headerRow skills">{{localize "SIMPLE.Skills"}}</span>
           </div><!-- end header row -->
         </div>
 
         <div class="rowcontainer">
           <div class="row">
-            <a class="rowlabel sk1">Skill One: </a>
+            <a class="rowlabel sk1">{{localize "SIMPLE.skillone"}}: </a>
           </div>
           <div class="row">
-            <input class="skillinput sk1" name="actor.system.skills.skill1" value="{{actor.system.skills.skill1}}" data-dtype="String"></select>
-          </div>
-        </div>
-
-        <div class="rowcontainer">
-          <div class="row">
-            <a class="rowlabel sk2">Skill Two: </a>
-          </div>
-          <div class="row">
-            <input class="skillinput sk2" name="actor.system.skills.skill2" value="{{actor.system.skills.skill2}}" data-dtype="String"></select>
+            <input class="skillinput sk1" name="system.skills.skill1" value="{{actor.system.skills.skill1}}" data-dtype="String"></input>
           </div>
         </div>
 
         <div class="rowcontainer">
           <div class="row">
-            <a class="rowlabel sk3">Skill Three: </a>
+            <a class="rowlabel sk2">{{localize "SIMPLE.skilltwo"}}: </a>
           </div>
           <div class="row">
-            <input class="skillinput special sk3" name="actor.system.skills.skill3" value="{{actor.system.skills.skill3}}" data-dtype="String"></select>
+            <input class="skillinput sk2" name="system.skills.skill2" value="{{actor.system.skills.skill2}}" data-dtype="String"></input>
+          </div>
+        </div>
+
+        <div class="rowcontainer">
+          <div class="row">
+            <a class="rowlabel sk3">{{localize "SIMPLE.skillthree"}}: </a>
+          </div>
+          <div class="row">
+            <input class="skillinput special sk3" name="system.skills.skill3" value="{{actor.system.skills.skill3}}" data-dtype="String"></input>
           </div>
         </div>
       </div><!-- end column -->
@@ -59,34 +58,34 @@
 
         <div class="rowcontainer">
           <div class="row headrow"><!-- start header row -->
-            <span class="headerRow obsessions">Obsessions</span>
+            <span class="headerRow obsessions">{{localize "SIMPLE.Obsessions"}} </span>
           </div><!-- end header row -->
         </div>
 
         <div class="rowcontainer">
           <div class="row">
-            <a class="rowlabel ob1">Level One: </a>
+            <a class="rowlabel ob1">{{localize "SIMPLE.LevelOne"}}: </a>
           </div>
           <div class="row">
-            <input class="skillinput ob1" name="actor.system.obsessions.level1obsession" value="{{actor.system.obsessions.level1obsession}}" data-dtype="String" placeholder="Pretty easy to accomplish..."></select>
-          </div>
-        </div>
-
-        <div class="rowcontainer">
-          <div class="row">
-            <a class="rowlabel ob2">Level Two: </a>
-          </div>
-          <div class="row">
-            <input class="skillinput ob2" name="actor.system.obsessions.level2obsession" value="{{actor.system.obsessions.level2obsession}}" data-dtype="String" placeholder="More difficult or risky..."></select>
+            <input class="skillinput ob1" name="system.obsessions.level1obsession" value="{{actor.system.obsessions.level1obsession}}" data-dtype="String" placeholder="{{localize 'SIMPLE.LevelOneTooltip'}}"></input>
           </div>
         </div>
 
         <div class="rowcontainer">
           <div class="row">
-            <a class="rowlabel ob3">Level Three: </a>
+            <a class="rowlabel ob2">{{localize "SIMPLE.LevelTwo"}}: </a>
           </div>
           <div class="row">
-            <input class="skillinput ob3" name="actor.system.obsessions.level3obsession" value="{{actor.system.obsessions.level3obsession}}" data-dtype="String" placeholder="Nearly impossible to accomplish..."></select>
+            <input class="skillinput ob2" name="system.obsessions.level2obsession" value="{{actor.system.obsessions.level2obsession}}" data-dtype="String" placeholder="{{localize 'SIMPLE.LevelTwoTooltip'}}"></input>
+          </div>
+        </div>
+
+        <div class="rowcontainer">
+          <div class="row">
+            <a class="rowlabel ob3">{{localize "SIMPLE.LevelThree"}}: </a>
+          </div>
+          <div class="row">
+            <input class="skillinput ob3" name="system.obsessions.level3obsession" value="{{actor.system.obsessions.level3obsession}}" data-dtype="String" placeholder="{{localize 'SIMPLE.LevelThreeTooltip'}}"></input>
           </div>
         </div>
 
@@ -95,8 +94,8 @@
     </div><!-- body-container TOP ends here -->
 
     <div class="body-container bottom"><!-- body-container BOTTOM starts here -->
-      <button class="willpowerButton addWillpower">Recover +1 Willpower</button>
-      <button class="willpowerButton subtractBid">Subtract Bid</button>
+      <button type="button" class="willpowerButton addWillpower">{{localize "SIMPLE.RecoverWillpower"}}</button>
+      <button type="button" class="willpowerButton subtractBid">{{localize "SIMPLE.SubstractBid"}}</button>
     </div><!-- body-container BOTTOM ends here -->
 
   </section><!-- sheet-body ends here -->

@@ -16,11 +16,12 @@ import { preloadHandlebarsTemplates } from "./templates.js";
 
 Hooks.once("init", async function () {
   console.log("Localization...");
-  game.settings.register("eij", "Name", {
-    name: "SIMPLE.Name",
-    hint: "SIMPLE.Name",
+
+  game.settings.register("fvtt-eij", "Name", {
+    name: game.i18n.localize("SIMPLE.Name"),
+    hint: game.i18n.localize("SIMPLE.Name"),
     scope: "world",
-    type: String,
+    type: Boolean,
     default: true,
     config: true,
   });
@@ -45,9 +46,9 @@ Hooks.once("init", async function () {
   Items.registerSheet("eij", SimpleItemSheet, { makeDefault: true });
 
   // Register system settings
-  game.settings.register("eij", "macroShorthand", {
-    name: "SETTINGS.SimpleMacroShorthandN",
-    hint: "SETTINGS.SimpleMacroShorthandL",
+  game.settings.register("fvtt-eij", "macroShorthand", {
+    name: game.i18n.localize("SETTINGS.SimpleMacroShorthandN"),
+    hint: game.i18n.localize("SETTINGS.SimpleMacroShorthandL"),
     scope: "world",
     type: Boolean,
     default: true,
@@ -55,9 +56,9 @@ Hooks.once("init", async function () {
   });
 
   // Register initiative setting.
-  game.settings.register("eij", "initFormula", {
-    name: "SETTINGS.SimpleInitFormulaN",
-    hint: "SETTINGS.SimpleInitFormulaL",
+  game.settings.register("fvtt-eij", "initFormula", {
+    name: game.i18n.localize("SETTINGS.SimpleInitFormulaN"),
+    hint: game.i18n.localize("SETTINGS.SimpleInitFormulaL"),
     scope: "world",
     type: String,
     default: "1d20",
@@ -66,7 +67,7 @@ Hooks.once("init", async function () {
   });
 
   // Retrieve and assign the initiative formula setting.
-  const initFormula = game.settings.get("eij", "initFormula");
+  const initFormula = game.settings.get("fvtt-eij", "initFormula");
   _simpleUpdateInit(initFormula);
 
   /**
@@ -100,6 +101,24 @@ Hooks.once("init", async function () {
    */
   Handlebars.registerHelper("slugify", function (value) {
     return value.slugify({ strict: true });
+  });
+
+  Handlebars.registerHelper("eq", function (v1, v2, options) {
+    if (v1 === v2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+  
+  Handlebars.registerHelper("eq", function(v1, v2) {
+    return v1 === v2;
+  });
+  
+  Handlebars.registerHelper("ifCond", function(v1, v2, options) {
+    if (v1 === v2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
   });
 
   // Preload template partials.

@@ -1,0 +1,46 @@
+{
+  "SETTINGS": {
+    "SimpleMacroShorthandN": "Syntaxe raccourcie pour macros",
+    "SimpleMacroShorthandL": "Active une syntaxe raccourcie pour les macros permettant de référencer directement les attributs, par exemple @for au lieu de @attributes.for.value. Désactivez cette option si vous souhaitez pouvoir référencer le modèle complet des attributs, par exemple @attributes.for.label.",
+    "SimpleInitFormulaN": "Formule d'initiative",
+    "SimpleInitFormulaL": "Entrez une formule d'initiative, comme d20+@dex"
+  },
+  "SIMPLE": {
+    "Name": "Afficher le nom",
+    "NotifyInitFormulaUpdated": "La formule d'initiative a été mise à jour :",
+    "NotifyInitFormulaInvalid": "La formule d'initiative est invalide :",
+    "ResourceMin": "Min",
+    "ResourceValue": "Valeur",
+    "ResourceMax": "Max",
+    "DefineTemplate": "Définir comme modèle",
+    "UnsetTemplate": "Retirer le modèle",
+    "NoTemplate": "Aucun modèle",
+    "Voice": "Voix",
+    "Obsessions": "Obsessions",
+    "Skills": "Compétences",
+    "Willpower": "Volonté",
+    "LevelOne": "Niveau 1",
+    "LevelOneTooltip": "Assez facile à accomplir...",
+    "LevelTwo": "Niveau 2",
+    "LevelTwoTooltip": "Plus difficile ou risqué...",
+    "LevelThree": "Niveau 3",
+    "LevelThreeTooltip": "Presque impossible à accomplir...",
+    "skillone": "Compétence Un",
+    "skilltwo": "Compétence Deux",
+    "skillthree": "Compétence Trois",
+    "RecoverWillpower": "Récupérer +1 Volonté",
+    "SubstractBid": "Soustraire l'enchère"
+  },
+  "ITEM": {
+    "Qty": "Quantité",
+    "Weight": "Poids",
+    "Description": "Description",
+    "Attributes": {
+      "Attributes": "Attributs",
+      "Key": "Clef de l'attribut",
+      "Value": "Valeur",
+      "Label": "Libellé",
+      "Dtype": "Type de donnée"
+    }
+  }
+}

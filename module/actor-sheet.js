@@ -28,9 +28,12 @@ export class EveryoneIsJohnActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const baseData = super.getData();
-    return {
+	const showName = game.settings.get("fvtt-eij", "Name");
+    
+	return {
       actor: baseData.actor,
       data: baseData.system,
+	  showName: showName,
       dtypes: ["String", "Number", "Boolean"],
     };
   }
